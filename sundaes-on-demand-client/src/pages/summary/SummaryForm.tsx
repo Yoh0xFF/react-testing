@@ -19,10 +19,6 @@ export default function SummaryForm({ setOrderPhase }: Props) {
   const popover = (
     <Popover id='termsandconditions-popover'>
       <Popover.Body>No ice cream will actually be delivered</Popover.Body>
-      {/* note: for React Bootstrap 2.x, the previous line needs to be:
-      <Popover.Body>No ice cream will actually be delivered</Popover.Body>
-      (replace Popover.Content with Popover.Body). For more details, see
-      https://www.udemy.com/course/react-testing-library/learn/lecture/30126784*/}
     </Popover>
   );
 
