@@ -10,6 +10,7 @@
     "format": "prettier --write 'src/**/*.ts' 'src/**/*.tsx' 'src/**/*.css'"
   },
   "dependencies": {
+    "axios": "^0.27.2",
     "bootstrap": "^5.1.3",
     "react": "^18.1.0",
     "react-bootstrap": "^2.4.0",
