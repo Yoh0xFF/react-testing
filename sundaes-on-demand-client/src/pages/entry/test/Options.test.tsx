@@ -1,7 +1,7 @@
-import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import Options from '@app/pages/entry/Options';
+import { render, screen } from '@app/test-utils/testing-library-utils';
 
 test('displays image for each scoop option from server', async () => {
   render(<Options optionType='scoops' />);

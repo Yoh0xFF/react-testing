@@ -3,9 +3,10 @@ import { Button } from 'react-bootstrap';
 
 import { useOrderDetails } from '@app/contexts/OrderDetails';
 import Options from '@app/pages/entry/Options';
+import { OrderPhase } from '@app/types/order';
 
 interface Props {
-  setOrderPhase: (phase: string) => void;
+  setOrderPhase: (phase: OrderPhase) => void;
 }
 
 export default function OrderEntry({ setOrderPhase }: Props) {

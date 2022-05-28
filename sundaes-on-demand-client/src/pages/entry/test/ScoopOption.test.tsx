@@ -1,7 +1,7 @@
-import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import ScoopOption from '@app/pages/entry/ScoopOption';
+import { render, screen } from '@app/test-utils/testing-library-utils';
 
 test.only('indicate if scoop count is non-int or out of range', async () => {
   render(<ScoopOption name='' imagePath='' updateItemCount={jest.fn()} />);

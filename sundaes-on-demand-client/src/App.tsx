@@ -1,26 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Container } from 'react-bootstrap';
 
 import './App.css';
-import logo from './logo.svg';
+
+import { OrderDetailsProvider } from '@app/contexts/OrderDetails';
+import OrderEntry from '@app/pages/entry/OrderEntry';
+import OrderSummary from '@app/pages/summary/OrderSummary';
+import { OrderPhase } from '@app/types/order';
 
 function App() {
+  // orderPhase needs to be 'inProgress', 'review' or 'completed'
+  const [orderPhase, setOrderPhase] = useState<OrderPhase>('inProgress');
+
+  let Component = OrderEntry; // default to order page
+  switch (orderPhase) {
+    case 'inProgress':
+      Component = OrderEntry;
+      break;
+    case 'review':
+      Component = OrderSummary;
+      break;
+    case 'completed':
+      // Component = OrderConfirmation;
+      break;
+    default:
+  }
+
   return (
-    <div className='App'>
-      <header className='App-header'>
-        <img src={logo} className='App-logo' alt='logo' />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className='App-link'
-          href='https://reactjs.org'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <OrderDetailsProvider>
+      <Container>{<Component setOrderPhase={setOrderPhase} />}</Container>
+    </OrderDetailsProvider>
   );
 }
 

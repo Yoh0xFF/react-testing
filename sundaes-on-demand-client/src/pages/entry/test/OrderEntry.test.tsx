@@ -1,9 +1,9 @@
-import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { rest } from 'msw';
 
 import { server } from '@app/mocks/server';
 import OrderEntry from '@app/pages/entry/OrderEntry';
+import { render, screen, waitFor } from '@app/test-utils/testing-library-utils';
 
 test('handles error for scoops and toppings routes', async () => {
   server.resetHandlers(

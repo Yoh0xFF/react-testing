@@ -1,8 +1,8 @@
-import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import Options from '@app/pages/entry/Options';
 import OrderEntry from '@app/pages/entry/OrderEntry';
+import { render, screen } from '@app/test-utils/testing-library-utils';
 
 test('update scoop subtotal when scoops change', async () => {
   render(<Options optionType='scoops' />);
