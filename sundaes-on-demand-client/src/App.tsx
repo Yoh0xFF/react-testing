@@ -4,6 +4,7 @@ import { Container } from 'react-bootstrap';
 import './App.css';
 
 import { OrderDetailsProvider } from '@app/contexts/OrderDetails';
+import OrderConfirmation from '@app/pages/confirmation/OrderConfirmation';
 import OrderEntry from '@app/pages/entry/OrderEntry';
 import OrderSummary from '@app/pages/summary/OrderSummary';
 import { OrderPhase } from '@app/types/order';
@@ -21,7 +22,7 @@ function App() {
       Component = OrderSummary;
       break;
     case 'completed':
-      // Component = OrderConfirmation;
+      Component = OrderConfirmation;
       break;
     default:
   }

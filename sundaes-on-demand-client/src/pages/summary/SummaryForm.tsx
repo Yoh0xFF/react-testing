@@ -1,8 +1,10 @@
 import React, { FormEvent, useState } from 'react';
 import { Button, Form, OverlayTrigger, Popover } from 'react-bootstrap';
 
+import { OrderPhase } from '@app/types/order';
+
 interface Props {
-  setOrderPhase?: (orderPhase: string) => void;
+  setOrderPhase?: (orderPhase: OrderPhase) => void;
 }
 
 export default function SummaryForm({ setOrderPhase }: Props) {
