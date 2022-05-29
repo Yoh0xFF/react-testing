@@ -4,7 +4,7 @@ import { pricePerItem } from '@app/constants';
 import { OptionType } from '@app/types/options';
 import { formatCurrency } from '@app/utilities';
 
-type OptionCountType = {
+type OptionCount = {
   scoops: Map<string, number>;
   toppings: Map<string, number>;
   totals: {
@@ -14,13 +14,13 @@ type OptionCountType = {
   };
 };
 
-type OrderDetailsContextType = [
-  OptionCountType,
+type OrderDetailsContext = [
+  OptionCount,
   (itemName: string, newItemCount: number, optionType: OptionType) => void,
   () => void
 ];
 
-const OrderDetails = createContext<OrderDetailsContextType>([
+const OrderDetails = createContext<OrderDetailsContext>([
   {
     scoops: new Map<string, number>(),
     toppings: new Map<string, number>(),
@@ -31,7 +31,7 @@ const OrderDetails = createContext<OrderDetailsContextType>([
 ]);
 
 // create custom hook to check whether we're inside a provider
-export function useOrderDetails(): OrderDetailsContextType {
+export function useOrderDetails(): OrderDetailsContext {
   const context = useContext(OrderDetails);
 
   if (!context) {
@@ -88,7 +88,7 @@ export function OrderDetailsProvider(props: Props) {
     });
   }, [optionCounts]);
 
-  const value: OrderDetailsContextType = useMemo(() => {
+  const value: OrderDetailsContext = useMemo(() => {
     function updateItemCount(
       itemName: string,
       newItemCount: number,
